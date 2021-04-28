@@ -3,16 +3,12 @@
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://www.springframework.org/schema/beans
            http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
-<!-- 	<bean id="" class=""> -->
-<!-- 		collaborators and configuration for this bean -->
-<!-- 		go here -->
-<!-- 	</bean> -->
-
-<!-- 	<bean id="" class=""> -->
-<!-- 		collaborators and configuration for -->
-<!-- 		this bean go here -->
-<!-- 	</bean> -->
-
-	<!-- more bean definitions go here -->
+	<!-- Creando BEAN de DisqueraDAO -->
+	<bean id="disqueraDAO"	class="com.devquinchi.proyecto_spring.impl.DisqueraIMPL">
+	</bean>
+	
+	<bean id="properties" class="org.springframework.beans.factory.config.PropertiesFactoryBean">
+		<property name="location" value="classpath:META-INF/config.properties" />
+	</bean>
 
 </beans>

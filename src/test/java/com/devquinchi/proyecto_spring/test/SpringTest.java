@@ -5,9 +5,13 @@ package com.devquinchi.proyecto_spring.test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+import java.util.Properties;
+
 import org.junit.jupiter.api.Test;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
+
+import com.devquinchi.proyecto_spring.dao.DisqueraDAO;
 
 /**
  * @author Julio
@@ -19,7 +23,13 @@ class SpringTest {
 	void testContext() {
 		ApplicationContext context=new ClassPathXmlApplicationContext("META-INF/applicationContext.xml");
 		assertNotNull(context);
-		System.out.println("Contexto cargado exitosamente");
+		DisqueraDAO disqueraDAO=(DisqueraDAO) context.getBean("disqueraDAO");
+		assertNotNull(disqueraDAO);
+		System.out.println("Contexto cargado exitosamente: "+disqueraDAO);
+		
+		Properties properties=(Properties) context.getBean("properties");
+		
+		System.out.println(properties.get("spring-username"));
 	}
 
 }
